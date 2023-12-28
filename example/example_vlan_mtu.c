@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
 			break;
 		}
 
-		getchar();
+		(void)getchar();
 
 		clear_window();
 	};

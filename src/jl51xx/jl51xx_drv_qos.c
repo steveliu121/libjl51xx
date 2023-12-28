@@ -842,7 +842,7 @@ static jl_ret_t jl51xx_qos_resource_info_get(void)
 		JL_CHECK_RETURN(ret);
 
 		ret2 = jl51xx_qos_check_port_empty(0x3ff);
-		if (ret)
+		if (ret2)
 			goto recover;
 
 		ret2 = jl51xx_qos_queue_guarantee_set(0, 60); //only index 0 is needed in this patch
