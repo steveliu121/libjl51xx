@@ -39,8 +39,11 @@ jl_ret_t jl51xx_mac_uctrl_write(jl_port_t port, jl_uint32 regval)
 {
 	jl_ret_t ret;
 
-	if (port >= JL_PORT_MAX)
+	if (port >= JL_PORT_MAX) {
 		ret = JL_ERR_PARAM;
+
+		return ret;
+	}
 
 	if ((ret = jl51xx_phy_direct_write_ext(0, MAC_UCTRL_PAGE_ID,
 					MAC_UCTRL_REG_ID(JL_PORT_P2M(port)),
@@ -74,8 +77,11 @@ jl_ret_t jl51xx_sw_rsvd_write(jl_port_t port, jl_uint32 regval)
 {
 	jl_ret_t ret;
 
-	if (port >= JL_PORT_MAX)
+	if (port >= JL_PORT_MAX) {
 		ret = JL_ERR_PARAM;
+
+		return ret;
+	}
 
 	if ((ret = jl51xx_phy_direct_write_ext(0, SW_RSVD_PAGE_ID,
 					SW_RSVD_REG_ID(JL_PORT_P2M(port)),
